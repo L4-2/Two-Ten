@@ -1,71 +1,48 @@
+let mainfont;
+let secondryfont;
+let title = "Two-Ten";
+let message = "Hang tight, we're on the way... :)"
+
+/** This function sets up our sketch. */
 function setup() {
+  
   createCanvas(windowWidth, windowHeight);
-  background(43,42,42);
+
+  let midx = windowWidth / 2;
+  let midy = windowHeight / 2;
+
 }
 
-let logofont;
-let regfont;
-function preload(){
-  logofont = loadFont('Array.otf');
-  regfont = loadFont('Tabular.otf');
+ /** This function loads resources that will be used later. */
+function preload() {
+  mainfont = loadFont("Array.otf");
+  secondryfont = loadFont("Tabular.otf");
 }
 
-  var fade;
-  var fadeAmount = 1
-
+/** This function redraws the sketch multiple times a second. */
 function draw() {
-/*
-let title = {
-  text: 'Two-Ten',
-  size: 200,
-  font: logofont,
-  alignment: CENTER,
-  locx: windowWidth/2,
-  locy: windowHeight/2
-};
   
-let secondary = {
-  text: "Hang tight, we're on the way :D.",
-  size: 35,
-  font: regfont,
-  alignment: CENTER,
-  locx: windowWidth/2,
-  locy: windowHeight/2
-};
-*/
- 
-  // Brand Name Title
-  
-  let title = 'Two-Ten';
-  
-  titlelocx = (windowWidth/2) + 0;
-  titlelocy = (windowHeight/2) - 40;
-  
+  background(35);
 
-  fill(225, 225, 225, fade);
+  let localmidx = windowWidth / 2;
+  let localmidy = windowHeight / 2;
+
+  // Title
+  fill(225,225);
   textSize(200);
-  textFont(logofont);
-  textAlign(CENTER);
-  text(title, titlelocx, titlelocy);
+  textFont(mainfont);
+  textAlign(CENTER, CENTER);
+  text(title, localmidx, localmidy - 100);
   
-  if (fade<0) fadeAmount=1; 
- 
-  if (fade>255) fadeAmount=-10; 
- 
-  fade += fadeAmount; 
-  
-  //Subtext
-  
-  let secondary = "Hang tight, we're on the way :D.";
-  
-  secondlocx = (windowWidth/2) + 40;
-  secondlocy = (windowHeight/2) + 40;
-  
+  // Message
   fill(225);
-  textSize(35);
-  textFont(regfont);
-  textAlign(CENTER);
-  smooth();
-  text(secondary, secondlocx, secondlocy);
+  textSize(50);
+  textFont(secondryfont);
+  textAlign(CENTER, CENTER);
+  text(message, localmidx + 40, localmidy + 50);
   
+}
+/** This function is called when the mouse is pressed. */
+function mousePressed() {
+  // Do something.
 }
